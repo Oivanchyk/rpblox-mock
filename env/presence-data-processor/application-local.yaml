@@ -1,0 +1,10 @@
+PORT: 8099
+RABBIT_HOST: localhost
+RABBIT_PORT: 5672
+RABBIT_USER: rabbitmq
+RABBIT_PASSWORD: rabbitmq
+POSTGRES_USERNAME: postgres
+POSTGRES_PASSWORD: postgres
+POSTGRES_URL: jdbc:postgresql://127.0.0.1:5432/kinjo-dev
+
+

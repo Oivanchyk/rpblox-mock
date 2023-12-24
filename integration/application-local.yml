@@ -1,0 +1,28 @@
+POSTGRES_URL: localhost:5432
+POSTGRES_USER: postgres
+POSTGRES_PASSWORD: postgres
+POSTGRES_DATABASE: kinjo-dev
+NOTIFICATION_SERVICE_URL: http://localhost:8081/api/v1
+ROBUX_SERVICE_URL: http://localhost:9000/api
+HELPER_SERVICE_URL: http://localhost:8001/api
+WEB_SERVER_HOST: https://localhost:8080
+
+REDIS_HOST: localhost
+REDIS_PASSWORD: redis-local-pass
+REDIS_PORT: 6379
+
+spring:
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  liquibase:
+    enabled: true
+
+logging:
+  level:
+    org:
+      apache:
+        http:
+          DEBUG

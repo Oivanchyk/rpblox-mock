@@ -1,0 +1,77 @@
+version: '3.5'
+
+services:
+  database:
+    container_name: local_database
+    build:
+      context: .docker/postgres
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - '5432:5432'
+    volumes:
+      - 'local-database:/var/lib/postgresql/data'
+#  zookeeper:
+#    container_name: local_zookeeper
+#    image: confluentinc/cp-zookeeper:latest.arm64
+#    ports:
+#      - '2181:2181'
+#    environment:
+#      ZOOKEEPER_CLIENT_PORT: 2181
+#      ZOOKEEPER_TICK_TIME: 2000
+#  kafka:
+#    container_name: local_kafka
+#    image: confluentinc/cp-kafka:latest.arm64
+#    restart: always
+#    depends_on:
+#      - zookeeper
+#    ports:
+#      - '9092:9092'
+#      - '9997:9997'
+#    environment:
+#      KAFKA_BROKER_ID: 1
+#      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+#      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092
+#      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+#      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+#      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+  redis:
+    container_name: local_redis
+    image: redis:latest
+    volumes:
+      - 'local-redis:/data'
+    ports:
+      - '6379:6379'
+#  kafka-ui:
+#    container_name: kafka-ui
+#    image: provectuslabs/kafka-ui:master
+#    ports:
+#      - "38080:8080"
+#    restart: always
+#    environment:
+#      - KAFKA_CLUSTERS_0_NAME=local
+#      - KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=kafka:29092
+#      - KAFKA_CLUSTERS_0_ZOOKEEPER=localhost:2181
+  rabbitmq:
+    image: rabbitmq:3.12.7-management-alpine
+    container_name: "rabbitmq"
+    ports:
+      - 5672:5672
+      - 15672:15672
+    environment:
+      RABBITMQ_DEFAULT_PASS: rabbitmq
+      RABBITMQ_DEFAULT_USER: rabbitmq
+    volumes:
+      - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
+      - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
+    networks:
+      - rabbitmq
+    restart: unless-stopped
+
+volumes:
+  local-database:
+    driver: local
+  local-redis:
+    driver: local
