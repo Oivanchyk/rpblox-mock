@@ -1,0 +1,98 @@
+Puller creds
+
+Prod
+
+rabbitmq-puller-load-balancer 34.30.221.27 kinjo-user IY958nVaQQpbauDw
+redis-puller-load-balancer 34.28.128.86 g5CEV8fnuE
+
+
+rancher
+http://104.154.205.226/admin/access/local
+admin
+swgk5HG6CRLu0qf
+
+
+Non-prod
+http://34.27.53.149/admin/access/local
+admin
+dowsod-vethiw-7hebqI
+
+REDIS_CONNECTION_URL: redis://default:LhSyhyc23a@35.236.61.80:6379/1
+RABBIT_CONNECTION_URL: amqp://kinjo-user:MC8GMfJe0ZeRTleh@34.94.206.115:5672
+
+
+RABBIT_HOST: puller-rabbitmq-release.puller.svc.cluster.local
+RABBIT_PORT: 5672
+RABBIT_USER: kinjo-user
+RABBIT_PASSWORD: IY958nVaQQpbauDw
+POSTGRES_USERNAME: kinjo-prod
+POSTGRES_PASSWORD: IPVvhz44ljs9NedyWdvsiWrSatJvxfCy
+POSTGRES_URL: jdbc:postgresql://10.218.240.2:5432/kinjo-prod
+
+RABBIT_HOST: puller-rabbitmq-release.puller.svc.cluster.local
+RABBIT_PORT: 5672
+RABBIT_USER: kinjo-user
+RABBIT_PASSWORD: IY958nVaQQpbauDw
+POSTGRES_USERNAME: kinjo-prod
+POSTGRES_PASSWORD: IPVvhz44ljs9NedyWdvsiWrSatJvxfCy
+POSTGRES_URL: jdbc:postgresql://10.218.240.2:5432/kinjo-prod
+REDIS_HOST: puller-redis-release-master.puller.svc.cluster.local
+REDIS_PORT: 6379
+REDIS_PASSWORD: g5CEV8fnuE
+REDIS_USER: default
+REDIS_DB: 1
+PRESENCE_PULLER_ENABLED: false
+
+
+- [x] US_EAST_1  - 3 us-east1-b
+- [ ] US_EAST_4 - 2
+- [ ] US_EAST_5 - 3
+
+- [ ] US_SOUTH_1 - 3
+- [ ] US_WEST_1 - 3 / us-west3-a
+
+- [ ] US_WEST_3 - 2
+
+9218,14
+
+HELPER_SERVICE_URL=http://helper-service.default.svc.cluster.loc
+
+# HOST
+REACT_APP_KINJO_HOST_API_KEY=https://staging-api.kinjo.com/api/v1
+REACT_APP_ROBLOX_HOST_API_KEY=https://thumbnails.roblox.com/v1
+REACT_APP_PAYMENT_KINJO_HOST_API_KEY=https://staging-stripe.kinjo.com/api
+
+# Firebase config
+REACT_APP_FIREBASE_API_KEY='AIzaSyCimyDMVwYTSXVNbbrpDPTdj0bEiE8c0qY'
+REACT_APP_FIREBASE_AUTH_DOMAIN='non-prod-parent.firebaseapp.com'
+REACT_APP_FIREBASE_PROJECT_ID='non-prod-parent'
+REACT_APP_FIREBASE_STORAGE_BUCKET='non-prod-parent.appspot.com'
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID='382233963568'
+REACT_APP_FIREBASE_APPID='1:382233963568:web:2a331f0170c6c86fcb11f5'
+REACT_APP_FIREBASE_MEASUREMENT_ID='G-QS4CBQ5D7E'
+
+
+curl --location 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCimyDMVwYTSXVNbbrpDPTdj0bEiE8c0qY' \
+--header 'Content-Type: text/plain' \
+--data-raw '{
+    "email": "admin@kinjo.com",
+    "password": "uvj0rpc1myf6VHB*mwz",
+    "returnSecureToken": true
+}'
+
+# connection properties
+POSTGRES_URL: 10.212.16.2:5432
+POSTGRES_USER: kinjo-dev
+POSTGRES_PASSWORD: IPVvhz44ljs9NedyWdvsiWrSatJvxfCy
+POSTGRES_DATABASE: kinjo-reporting
+NOTIFICATION_SERVICE_URL: http://unified-notification-service.default.svc.cluster.local/api/v1
+REDIS_HOST: redis-release-master.default.svc.cluster.local
+REDIS_PORT: 6379
+
+http://unified-notification-service.default.svc.cluster.local/notifications/api/v1
+
+http://unified-notification-service.default.svc.cluster.local/notifications/api/v1
+
+
+redis://default:g5CEV8fnuE@10.168.0.46:6379/1
+amqp://kinjo-user:IY958nVaQQpbauDw@10.168.0.45:5672
