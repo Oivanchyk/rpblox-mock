@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  roblox-mock:
+    build: .
+    ports:
+      - '3003:3000'
+
+networks:
+  default:
+    driver: bridge
